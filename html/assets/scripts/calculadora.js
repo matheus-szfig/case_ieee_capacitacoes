@@ -37,7 +37,7 @@ function addOperator(operatorSelected) {
 }
 
 function calculate(event) {
-  event.preventDefault();
+  if(!!event) event.preventDefault();
 
   if (n1 !== "" && n2 !== "" && operator !== "") {
     switch (operator) {
@@ -75,10 +75,8 @@ function calculate(event) {
 
 function sqrt() {
 
-  console.log(n1, n2, res, operator)
-
   if (n1 === "") return;
-  if(n2 !== "" && operator !== "") calculate(event);
+  if(n2 !== "" && operator !== "") calculate();
 
   res = Math.sqrt(parseInt(n1));
 
